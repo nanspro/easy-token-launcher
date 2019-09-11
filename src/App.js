@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import TokenLaunchForm from "./components/TokenLaunchForm";
+import TokenBuyForm from "./components/TokenBuyForm";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/launch" component={TokenLaunchForm} />
+        <Route exact path="/buy/:address" component={TokenBuyForm} />
       </div>
     </Router>
   );

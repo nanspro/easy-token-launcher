@@ -6,6 +6,7 @@ import Web3 from "web3";
 import { withStyles } from "@material-ui/core/styles";
 import { Container, TextField, Grid, Typography, Fab } from "@material-ui/core";
 import TrendingUp from "@material-ui/icons/TrendingUpRounded";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Navbar from "./Navbar";
 import Loader from "./Loader";
@@ -19,7 +20,8 @@ const styles = theme => ({
     width: "100%"
   },
   fabIcon: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    color: "#fff"
   }
 });
 
@@ -33,7 +35,8 @@ class TokenLaunchForm extends Component {
     allPeers: null,
     user: null,
     isPeerDeployed: false,
-    peerContract: null
+    peerContract: null,
+    isLaunchingToken: false
   };
 
   async componentDidMount() {
@@ -503,17 +506,22 @@ class TokenLaunchForm extends Component {
   };
 
   launchToken = async () => {
-    if (!this.state.isPeerDeployed) {
-      await this.deployPeer();
-    } else {
-      console.log("peer contract is deployed at", this.state.peerContract);
-    }
-    await this.setRules();
-    console.log("launched");
+    this.setState({ isLaunchingToken: true }, async () => {
+      if (!this.state.isPeerDeployed) {
+        await this.deployPeer();
+      } else {
+        console.log("peer contract is deployed at", this.state.peerContract);
+      }
+      await this.setRules();
+      console.log("launched");
+      this.setState({ isLaunchingToken: false }, () => {
+        this.props.history.push("/");
+      });
+    });
   };
 
   dataLoaded = () => {
-    return Boolean(this.state.allPeers);
+    return Boolean(this.state.allPeers) && Boolean(this.state.user);
   };
 
   render() {
@@ -588,8 +596,17 @@ class TokenLaunchForm extends Component {
                   color="primary"
                   onClick={this.launchToken}
                 >
-                  <TrendingUp className={classes.fabIcon} />
-                  Launch
+                  {!this.state.isLaunchingToken ? (
+                    <Fragment>
+                      <TrendingUp className={classes.fabIcon} />
+                      Launch
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <CircularProgress className={classes.fabIcon} size={20} />
+                      Please Wait...
+                    </Fragment>
+                  )}
                 </Fab>
               </Grid>
             </Grid>

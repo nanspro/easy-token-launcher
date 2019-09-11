@@ -15,7 +15,7 @@ class Loader extends Component {
     size: 50
   };
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.size === "small") {
       this.setState({ size: 30 });
     }
