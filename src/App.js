@@ -12,7 +12,7 @@ function App() {
       <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/launch" component={TokenLaunchForm} />
-        <Route exact path="/buy/:address" component={TokenBuyForm} />
+        <Route exact path="/buy/:takerToken/:makerToken" component={TokenBuyForm} />
       </div>
     </Router>
   );

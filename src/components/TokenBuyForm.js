@@ -37,6 +37,10 @@ class TokenBuyForm extends Component {
   };
 
   async componentDidMount() {
+    const { takerToken, makerToken } = this.props.match.params;
+    if (Web3.utils.isAddress(takerToken) && Web3.utils.isAddress(makerToken)) {
+      this.setState({ takerToken, makerToken });
+    }
     if (window.ethereum) {
       if (window.ethereum.selectedAddress) {
         this.setState({ user: window.ethereum.selectedAddress });
@@ -45,7 +49,6 @@ class TokenBuyForm extends Component {
       console.error("Install/Update MetaMask");
     }
     var maxQuotes = await this.getMaxQuote();
-    console.log(maxQuotes);
     this.setState({
       maxTakerAmount: maxQuotes[0],
       maxMakerAmount: maxQuotes[1]
@@ -58,7 +61,6 @@ class TokenBuyForm extends Component {
 
   handleChange = async e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target);
     if (e.target.name === "makerAmount") {
       var takerAmount = await this.getTakerAmount(Number(e.target.value));
       this.setState({ takerAmount });
