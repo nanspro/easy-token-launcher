@@ -15,12 +15,13 @@ import {
 } from "@material-ui/core";
 import TrendingUp from "@material-ui/icons/TrendingUpRounded";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMoreRounded";
+import ShopIcon from "@material-ui/icons/ShopRounded";
 
 import Navbar from "./Navbar";
 import Loader from "./Loader";
 
 const styles = theme => ({
-  fabIcon: {
+  gutterRight: {
     marginRight: theme.spacing(1)
   },
   gutterBottom: {
@@ -266,7 +267,6 @@ class Home extends Component {
     //     outputs: [
     //       {
     //         name: "takerParam",
-
     //         type: "uint256"
     //       },
     //       {
@@ -410,7 +410,6 @@ class Home extends Component {
     //   }
     // ];
     // var peerContract = new web3.eth.Contract(abi, peerContractAddress);
-
     // var rules = await peerContract.methods.rules.call();
     // console.log(rules);
   };
@@ -440,18 +439,27 @@ class Home extends Component {
             </Grid>
             <Grid item>
               <Typography variant="body1" align="center">
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis praesentium voluptatum deleniti atque corrupti quos
-                dolores et quas molestias excepturi sint occaecati cupiditate
-                non provident, similique sunt in culpa qui officia deserunt
-                mollitia animi, id est laborum et dolorum fuga. Et harum quidem
-                rerum facilis est et expedita distinctio.
+                Decentralized, transparent, responsible way to distribute or
+                launch your tokens.
               </Typography>
             </Grid>
             <Grid item>
-              <Fab variant="extended" color="primary" href="/launch">
-                <TrendingUp className={classes.fabIcon} />
+              <Fab
+                variant="extended"
+                color="primary"
+                href="/launch"
+                className={classes.gutterRight}
+              >
+                <TrendingUp className={classes.gutterRight} />
                 Launch Tokens
+              </Fab>
+              <Fab
+                variant="extended"
+                color="primary"
+                href="/buy/0xCC1CBD4f67cCeb7c001bD4aDF98451237a193Ff8/0x662469f56080c807250216e1fa8c68EA9e63EC79"
+              >
+                <ShopIcon className={classes.gutterRight} />
+                Buy (Sample)
               </Fab>
             </Grid>
           </Grid>

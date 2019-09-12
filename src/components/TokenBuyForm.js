@@ -4,7 +4,7 @@ import Web3 from "web3";
 
 import { withStyles } from "@material-ui/core/styles";
 import { Container, TextField, Grid, Typography, Fab } from "@material-ui/core";
-import TrendingUp from "@material-ui/icons/TrendingUpRounded";
+import ShopIcon from '@material-ui/icons/ShopRounded';
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Navbar from "./Navbar";
@@ -1225,7 +1225,7 @@ class TokenBuyForm extends Component {
                 <Fab variant="extended" color="primary" onClick={this.buyToken}>
                   {!this.state.isLaunchingToken ? (
                     <Fragment>
-                      <TrendingUp className={classes.fabIcon} />
+                      <ShopIcon className={classes.fabIcon} />
                       Buy
                     </Fragment>
                   ) : (
