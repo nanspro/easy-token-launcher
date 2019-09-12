@@ -4,7 +4,7 @@ import Web3 from "web3";
 
 import { withStyles } from "@material-ui/core/styles";
 import { Container, TextField, Grid, Typography, Fab } from "@material-ui/core";
-import ShopIcon from '@material-ui/icons/ShopRounded';
+import ShopIcon from "@material-ui/icons/ShopRounded";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Navbar from "./Navbar";
@@ -1188,6 +1188,20 @@ class TokenBuyForm extends Component {
                 </Typography>
               </Grid>
               <Grid item>
+                <TextField
+                  disabled
+                  label="Taker Token"
+                  value={this.state.takerToken}
+                  className={classes.textFields}
+                  variant="outlined"
+                />
+                <TextField
+                  disabled
+                  label="Maker Token"
+                  value={this.state.makerToken}
+                  className={classes.textFields}
+                  variant="outlined"
+                />
                 <TextField
                   label="Taker Amount"
                   name="takerAmount"
