@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/easy-token-launcher/static/css/main.34de6062.chunk.css",
+    "main.js": "/easy-token-launcher/static/js/main.f75fcdc4.chunk.js",
+    "main.js.map": "/easy-token-launcher/static/js/main.f75fcdc4.chunk.js.map",
+    "runtime~main.js": "/easy-token-launcher/static/js/runtime~main.7af51302.js",
+    "runtime~main.js.map": "/easy-token-launcher/static/js/runtime~main.7af51302.js.map",
+    "static/js/2.341a6927.chunk.js": "/easy-token-launcher/static/js/2.341a6927.chunk.js",
+    "static/js/2.341a6927.chunk.js.map": "/easy-token-launcher/static/js/2.341a6927.chunk.js.map",
+    "index.html": "/easy-token-launcher/index.html",
+    "precache-manifest.2134096bede7250dfe2ead23ed6ec747.js": "/easy-token-launcher/precache-manifest.2134096bede7250dfe2ead23ed6ec747.js",
+    "service-worker.js": "/easy-token-launcher/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/easy-token-launcher/static/css/main.34de6062.chunk.css.map"
+  }
+}
